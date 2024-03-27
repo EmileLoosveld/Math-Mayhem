@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  python_netcat:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: python_netcat_container
+    ports:
+      - "12345:12345"  # Stel de poort in waarop de applicatie luistert
+    volumes:
+      - .:/app  # Koppel de huidige directory aan de /app directory in de container
+    restart: always  # Automatisch herstarten van de container bij fouten
